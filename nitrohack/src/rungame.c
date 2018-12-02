@@ -39,7 +39,7 @@ nh_bool get_gamedir(enum game_dirs dirtype, wchar_t *buf)
 	case CONFIG_DIR: subdir = L"\\"; break;
 	case SAVE_DIR:   subdir = L"\\save\\"; break;
 	case LOG_DIR:    subdir = L"\\log\\"; break;
-	case DUMP_DIR:   subdir = L"\\dumps\\"; break;
+	case DUMP_DIR:   subdir = L"\\dumplog\\"; break;
     }
 
     _snwprintf(buf, BUFSZ, L"%s%s", nhPath, subdir);
@@ -60,7 +60,7 @@ nh_bool get_gamedir(enum game_dirs dirtype, char *buf)
 	case CONFIG_DIR: subdir = ""; break;
 	case SAVE_DIR:   subdir = "save/"; break;
 	case LOG_DIR:    subdir = "log/"; break;
-	case DUMP_DIR:   subdir = "dumps/"; break;
+	case DUMP_DIR:   subdir = "dumplog/"; break;
     }
 
     if (override_userdir && getgid() == getegid()) {

@@ -55,6 +55,8 @@ static struct curses_symdef unicode_graphics_ovr[] = {
     {"tdwall",	-1,	{0x252C, 0},	0},	/* ┬ down */
     {"tlwall",	-1,	{0x2524, 0},	0},	/* ┤ left */
     {"trwall",	-1,	{0x251C, 0},	0},	/* ├ right */
+    {"corr",    -1,     {0x2591, 0},    0},     /* ░ corridor */
+    {"litcorr", -1,     {0x2591, 0},    0},     /* ░ lit corridor */
     {"pool",	-1,	{0x2248, 0},	0},	/* ≈ almost equal to */
     {"water",	-1,	{0x2248, 0},	0},	/* ≈ almost equal to */
     {"swamp",	-1,	{0x2248, 0},	0},	/* ≈ almost equal to */
