@@ -498,6 +498,11 @@ static int classmon(char *plch, boolean fem)
  */
 struct obj *tt_oname(struct obj *otmp)
 {
+    /* Causes NitroHack save desyncs, so disable for now... */
+    return NULL;
+
+    /* original logic below */
+
     int rank, fd;
     struct toptenentry *toptenlist, *tt;
 
@@ -507,14 +512,14 @@ struct obj *tt_oname(struct obj *otmp)
     fd = open_datafile(RECORD, O_RDONLY, SCOREPREFIX);
     toptenlist = read_topten(fd, 100); /* load the top 100 scores */
     close(fd);
-    
+
     /* try to find a valid entry, reducing the value range for rank each time */
     rank = rn2(100);
     while (!validentry(toptenlist[rank]) && rank)
 	rank = rn2(rank);
-    
+
     tt = &toptenlist[rank];
-    
+
     if (!validentry(toptenlist[rank]))
 	otmp = NULL; /* the topten list is empty */
     else {
@@ -527,7 +532,7 @@ struct obj *tt_oname(struct obj *otmp)
 	if (otmp->otyp == CORPSE)
 	    start_corpse_timeout(otmp);
     }
-    
+
     free(toptenlist);
     return otmp;
 }
