@@ -1,0 +1,3 @@
+### Execute from 'build' sub-directory
+
+cmake .. -DINSTALL_BASE=/opt/nethack/chroot -DCMAKE_BUILD_TYPE=Debug
