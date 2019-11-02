@@ -226,9 +226,29 @@ void replay_commandloop(int fd)
 		}
 		break;
 		
+	    /* step forward 50 turns */
+	    case KEY_NPAGE:
+		ret = nh_view_replay_step(&rinfo, REPLAY_FORWARD,
+		                          min(50, max(1, rinfo.max_actions - rinfo.actions)));
+		draw_replay_info(&rinfo);
+		if (ret == FALSE) {
+		    key = curses_msgwin("You have reached the end of this game. "
+		                        "Go back or press ESC to exit.");
+		    if (key == KEY_ESC)
+			goto out;
+		}
+		break;
+		
 	    /* step backward */
 	    case KEY_LEFT:
 		nh_view_replay_step(&rinfo, REPLAY_BACKWARD, 1);
+		draw_replay_info(&rinfo);
+		break;
+		
+	    /* step backward 50 turns */
+	    case KEY_PPAGE:
+		nh_view_replay_step(&rinfo, REPLAY_BACKWARD,
+                                    min(50, max(1, rinfo.actions - 1)));
 		draw_replay_info(&rinfo);
 		break;
 		

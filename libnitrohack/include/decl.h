@@ -123,6 +123,7 @@ extern struct sinfo {
 	int exiting;		/* an exit handler is executing */
 #endif
 	int in_impossible;
+	int in_zero_time_command;
 #ifdef PANICLOG
 	int in_paniclog;
 #endif

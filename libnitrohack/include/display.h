@@ -136,6 +136,9 @@
 #define canseeself()	(Blind || u.uswallow || (!Invisible && !u.uundetected))
 #define senseself()	(canseeself() || Unblind_telepat || Detect_monsters)
 
+#define newsym_rng(x)                                                   \
+  (program_state.in_zero_time_command ? display_rng(x) : rn2(x))
+
 /*
  * random_monster()
  * random_object()
@@ -143,9 +146,9 @@
  *
  * Respectively return a random monster, object, or trap number.
  */
-#define random_monster() (display_rng(NUMMONS))
-#define random_object()  (display_rng(NUM_OBJECTS-1) + 1)
-#define random_trap()	 (display_rng(TRAPNUM-1) + 1)
+#define random_monster() (newsym_rng(NUMMONS))
+#define random_object()  (newsym_rng(NUM_OBJECTS-1) + 1)
+#define random_trap()	 (newsym_rng(TRAPNUM-1) + 1)
 
 /*
  * what_obj()
