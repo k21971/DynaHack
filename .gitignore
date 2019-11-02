@@ -5,3 +5,7 @@ doc/Guidebook.txt
 *.kate-swp
 tags
 cscope.out
+Makefile
+*.txt
+*.lev
+*.cmake
