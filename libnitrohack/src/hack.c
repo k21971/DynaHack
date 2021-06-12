@@ -2525,7 +2525,7 @@ void check_special_room(boolean newlev)
             rt = 0;
             break;
         case LEMUREPIT:
-            pline("You enter a put of screaming lemures!");
+            pline("You enter a pit of screaming lemures!");
             break;
         case COCKNEST:
             pline("You enter a disgusting nest!");
