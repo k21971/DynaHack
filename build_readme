@@ -1,4 +1,4 @@
 ### Execute from 'build' sub-directory
 
-cmake .. -DINSTALL_BASE=/opt/nethack/chroot -DCMAKE_BUILD_TYPE=Debug
+cmake .. -DINSTALL_BASE=/opt/nethack/chroot -DCMAKE_BUILD_TYPE=Debug -DALL_STATIC:BOOL=TRUE
 make install
