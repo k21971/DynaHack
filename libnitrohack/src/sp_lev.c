@@ -5126,8 +5126,6 @@ static boolean sp_level_coder(struct level *lev, sp_lev *lvl)
     fill_rooms(lev);
     remove_boundary_syms(lev);
 
-    wallification(lev, 1, 0, COLNO - 1, ROWNO - 1);
-
     /* disable level flipping for some levels */
     if (!Is_astralevel(&lev->z) &&
         !Is_blackmarket(&lev->z) &&
@@ -5143,6 +5141,8 @@ static boolean sp_level_coder(struct level *lev, sp_lev *lvl)
         !In_V_tower(&lev->z)) {
         flip_level_rnd(lev, coder->allow_flips);
     }
+
+    wallification(lev, 1, 0, COLNO - 1, ROWNO - 1);
 
     count_features(lev);
 
