@@ -1301,12 +1301,13 @@ int seffects(struct obj *sobj, boolean *known)
         cval = rn1(4, 3);
         if (!objects[sobj->otyp].oc_name_known) more_experienced(0, 0, 10);
         useup(sobj);
+        sobj = NULL;
         makeknown(SCR_IDENTIFY);
     id:
         if (invent && !confused) {
             int num_identified;
             num_identified = identify_pack(cval);
-            if (sobj->otyp == SPE_IDENTIFY && num_identified == 0) {
+            if (sobj && sobj->otyp == SPE_IDENTIFY && num_identified == 0) {
                 /* allow identify spell to be aborted */
                 return 2;
             }
