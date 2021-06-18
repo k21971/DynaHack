@@ -426,12 +426,14 @@ static void flip_drawbridge_vertical(struct rm *loc)
     }
 }
 
+#define inFlipArea(x, y) \
+    ((x) >= minx && (x) <= maxx && (y) >= miny && (y) <= maxy)
 #define FlipX(val) do {                                 \
-        if ((flp & 2) && isok(val, miny))               \
+        if ((flp & 2) && inFlipArea(val, miny))         \
             val = ((maxx - (val)) + minx);              \
     } while (0)
 #define FlipY(val) do {                                 \
-        if ((flp & 1) && isok(minx, val))               \
+        if ((flp & 1) && inFlipArea(minx, val))         \
             val = ((maxy - (val)) + miny);              \
     } while (0)
 #define FlipXY(x, y) do {                       \
@@ -617,6 +619,7 @@ static void flip_level(struct level *lev, int flp)
     }
 }
 
+#undef inFlipArea
 #undef FlipC
 #undef FlipXY
 #undef FlipY
