@@ -2,3 +2,5 @@
 
 cmake .. -DINSTALL_BASE=/opt/nethack/chroot -DCMAKE_BUILD_TYPE=Debug -DALL_STATIC:BOOL=TRUE
 make install
+
+Navigate to /opt/nethack/chroot/dynahack/dynahack-data - mkdir var/ - chown -R games:games var/ - cd var/ create the files 'logfile' 'record' and 'xlogfile' as needed - give same owner permissions to these files same as var/
